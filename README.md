@@ -64,7 +64,7 @@ go run webcam.go
 
 ### More
 
-You can find more samples at: https://github.com/lazywei/go-opencv/tree/master/samples
+You can find more samples at: https://github.com/lidaohang/go-opencv/tree/master/samples
 
 ## How to contribute
 
@@ -72,7 +72,7 @@ You can find more samples at: https://github.com/lazywei/go-opencv/tree/master/s
 - Clone the main repo, and add your fork as a remote
 
 ```
-git clone https://github.com/lazywei/go-opencv.git
+git clone https://github.com/lidaohang/go-opencv.git
 cd go-opencv
 git remote rename origin upstream
 git remote add origin https://github.com/your_github_account/go-opencv.git
