@@ -10,7 +10,7 @@ Original project (https://code.google.com/p/go-opencv) looks abandoned. Therefor
 Install Go and OpenCV, you might want to install both of them via `apt-get` or `homebrew`.
 
 ```
-go get github.com/lazywei/go-opencv
+go get github.com/lidaohang/go-opencv
 cd ${GoOpenCVRoot}/samples && go run hellocv.go
 ```
 
