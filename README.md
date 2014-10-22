@@ -35,7 +35,7 @@ cd ${GoOpenCVRoot}/trunk/samples && go run hellocv.go
 ```go
 package main
 
-import opencv "github.com/lazywei/go-opencv/opencv"
+import opencv "github.com/lidaohang/go-opencv/opencv"
 
 func main() {
 	filename := "bert.jpg"
