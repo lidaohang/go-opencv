@@ -47,7 +47,7 @@ func main() {
 	defer srcImg.Release()
 	
 	destImg := opencv.Resize(srcImg, 400, 300, 2)
-	destImg.Release()
+	defer destImg.Release()
 	img := opencv.EncodeImage(".jpg", unsafe.Pointer(destImg), 80)
 	return img.GetData()
 }
