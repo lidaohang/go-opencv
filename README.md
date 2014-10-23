@@ -37,7 +37,38 @@ package main
 
 import opencv "github.com/lidaohang/go-opencv/opencv"
 
-func main() {
+func main(){
+	runtime.GOMAXPROCS(runtime.NumCPU() - 5)
+	http.HandleFunc("/", handerRun)
+	http.ListenAndServe(":80", nil)
+}
+
+func handerRun(w http.ResponseWriter, req *http.Request) {
+
+	w.Header().Set("Content-Type", "image/jpeg")
+	w.Header().Set("Last-Modified", time.Now().Format(http.TimeFormat))
+	w.Header().Add("Powerd-By-Dis-Img", "BY GO60")
+	w.Header().Set("Server", "go")
+
+	//uri := req.URL.RequestURI()
+	//host := req.Host
+
+
+	data := getBuffer()
+	lens := len(data)
+	if data == nil || lens == 0 {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write(nil)
+		fmt.Printf("\n%s %s %d", uri, host, http.StatusNotFound)
+		return
+	}
+
+	w.Header().Set("Content-Length", strconv.Itoa(lens))
+	w.WriteHeader(http.StatusOk)
+	w.Write(data)
+}
+
+func getBuffer() []byte {
 	filename := "bert.jpg"
 	srcImg := opencv.LoadImage(filename)
 	if srcImg == nil {
